@@ -1,0 +1,40 @@
+{
+	"name": "blueeye",
+	"version": "0.1.0",
+	"main": "main.js",
+	"dependencies": {
+		"node-stream-zip": "^1.8.2",
+		"tmp": "^0.1.0"
+	},
+	"devDependencies": {
+		"electron": "^6.0.9",
+		"electron-builder": "^21.2.0"
+	},
+	"scripts": {
+		"build:osx": "build --mac"
+	},
+	"build": {
+		"productName": "BlueEye",
+		"appId": "com.blueeye.app",
+		"asar": true,
+		"protocols": {
+			"name": "BlueEye",
+			"schemes": [
+				"BlueEye"
+			]
+		},
+		"mac": {
+			"target": [
+				"default"
+			]
+		},
+		"dmg": {
+			"title": "BlueEye"
+		},
+		"directories": {
+			"buildResources": "resources/installer/",
+			"output": "dist/",
+			"app": "."
+		}
+	}
+}

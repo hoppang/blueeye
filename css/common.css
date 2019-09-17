@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 0;
+    background-color: #333;
+}
+
+.canvas {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.ui_icon {
+    max-width:100%;
+}
+
+#closebutton {
+    position: fixed;
+    right: 1em;
+    top: 1em;
+    width: 4em;
+    height: 4em;
+    opacity: 0.1;
+}
+#closebutton:hover {
+    opacity: 1;
+}

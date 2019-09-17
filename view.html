@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BlueEye</title>
+        <link rel="stylesheet" type="text/css" href="./css/common.css" />
+        <link rel="stylesheet" type="text/css" href="./css/viewer.css" />
+    </head>
+    <body>
+        <div id="pageSliderBox">
+            <input type="range" id="pageSlider" min="0" max="0" onchange="onChangeSlider();" ></input>
+            <div id="pageIndicator"></div>
+        </div>
+        <div>
+            <a href="#" id="linkPrev" onclick="prevPage();" class="hud_button">
+                <img class="ui_icon" src="./res/drawable-xxhdpi/round_navigate_before_white_48dp.png" />
+            </a>
+            <a href="#" id="linkNext" onclick="nextPage();">
+                <img class="ui_icon" src="./res/drawable-xxhdpi/round_navigate_next_white_48dp.png" />
+            </a>
+        </div>
+        <a href="#" onclick="backToBrowser();" id="back_to_browser_button">
+            <img class="ui_icon" src="./res/drawable-xxhdpi/round_arrow_back_white_48dp.png" />
+        </a>
+        <a href="#" onclick="goodbye();" id="closebutton" class="hud_button">
+            <img class="ui_icon" src="./res/drawable-xxhdpi/round_close_white_48dp.png" />
+        </a>
+        <img id="canvas" class="canvas"/>
+        <script src="renderer_view.js"></script>
+        <script src="./src/commonutil.js"></script>
+    </body>
+</html>
+
