@@ -16,12 +16,16 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 let form
 let browser
 let viewer
+let filename_arg = "";
 
 app.on('ready', init)
 app.on('activate', init)
 app.on('window-all-closed', () => {
-    app.quit()
+    app.quit();
 })
+app.on('open-file', function(ev, path) {
+	filename_arg = path;
+});
 
 function init() {
     if (form == null) {
@@ -33,10 +37,9 @@ function init() {
     if (viewer == null) {
         viewer = new Viewer();
 	}
-	
-	if (process.argv.length > 2) {
-		arg = process.argv[2];
-		on_view_command(null, arg);
+
+	if (filename_arg != null || filename_arg != "") {
+		on_view_command(null, filename_arg);
 	}
 }
 
