@@ -1,4 +1,4 @@
-const {app, ipcMain} = require('electron')
+const {app, ipcMain, remote} = require('electron')
 const Browser = require('./src/browser.js');
 const Viewer = require('./src/viewer.js');
 const MainForm = require('./src/mainform.js');
@@ -32,7 +32,12 @@ function init() {
     }
     if (viewer == null) {
         viewer = new Viewer();
-    }
+	}
+	
+	if (process.argv.length > 2) {
+		arg = process.argv[2];
+		on_view_command(null, arg);
+	}
 }
 
 ipcMain.on('changeDir', (event, dirname) => {
@@ -46,7 +51,7 @@ ipcMain.on('change_drive', (event, drive_letter) => {
     browser.sendCurrentDirList(event.sender);
 });
 
-ipcMain.on('view', (event, filename) => {
+function on_view_command(event, filename) {
     var view_html_path = url.format({
         pathname: path.join(__dirname, 'view.html'),
         protocol: 'file:',
@@ -57,7 +62,9 @@ ipcMain.on('view', (event, filename) => {
 
     form.load(view_html_path, filename);
     viewer.load(filename, tempDir);
-});
+}
+
+ipcMain.on('view', on_view_command);
 
 ipcMain.on('backToBrowser', () => {
 	form.back_to_browser();

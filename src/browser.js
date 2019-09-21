@@ -27,7 +27,7 @@ class Browser {
                     filetype = EFileType.Unknown;
                 }
     
-                console.log("filename = " + items[i] + ", type = " + filetype);
+                // console.log("filename = " + items[i] + ", type = " + filetype);
                 if(filetype != EFileType.File || extension == "cbz")
                     elements.push({name:items[i], filetype:filetype});
             }
