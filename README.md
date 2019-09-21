@@ -1,4 +1,8 @@
 # blueeye
 simple comic viewer made with electron
 
-writing...
+support cbz only
+
+windows, linux, macos
+
+nothing more to say...
