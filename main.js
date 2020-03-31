@@ -38,7 +38,7 @@ function init() {
         viewer = new Viewer();
 	}
 
-	if (filename_arg != null || filename_arg != "") {
+	if (filename_arg != null && filename_arg != "") {
 		on_view_command(null, filename_arg);
 	}
 }
